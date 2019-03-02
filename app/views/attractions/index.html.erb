@@ -2,7 +2,7 @@
 <% @attractions.each do |attraction| %>
   <p><%=attraction.name %>
 
-  <% if current_user.admin %>
+  <% if !current_user.admin %>
     <%= link_to "Go on " + attraction.name, attraction %>
   <% end %>
 
