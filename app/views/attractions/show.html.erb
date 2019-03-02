@@ -1,2 +1,3 @@
 <h1>Attractions#show</h1>
-<p>Find me in app/views/attractions/show.html.erb</p>
+<p><%=@attraction.name %></p>
+<%=button_to "Go on this ride", attraction_rides_path(@attraction.id) %>
