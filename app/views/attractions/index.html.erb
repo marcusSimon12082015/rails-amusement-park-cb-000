@@ -1,6 +1,6 @@
 <h1>Attractions</h1>
 <% @attractions.each do |attraction| %>
-  <p><%=attraction.name %> <%= link_to "Go on " + attraction.name, attraction %> 
+  <p><%=attraction.name %> <%= link_to "Go on " + attraction.name, attraction %>
     <%= link_to " Show #{attraction.name}", attraction %></p>
 <% end %>
 <% if current_user.admin %>
