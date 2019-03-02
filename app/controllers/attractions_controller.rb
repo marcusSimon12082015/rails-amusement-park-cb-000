@@ -12,4 +12,8 @@ class AttractionsController < ApplicationController
 
   def create
   end
+
+  def new
+    @attraction = Attraction.new
+  end
 end
