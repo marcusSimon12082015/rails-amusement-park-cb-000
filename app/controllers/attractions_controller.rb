@@ -11,6 +11,10 @@ class AttractionsController < ApplicationController
     @attraction = Attraction.find(params[:id])
   end
 
+  def update
+
+  end
+
   def create
     @attraction = Attraction.create(attraction_params)
     if @attraction.save
