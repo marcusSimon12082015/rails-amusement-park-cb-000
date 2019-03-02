@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       redirect_to @user
-    elsif
+    else
       flash[:error] = "Error when creating an account!"
       render :new
     end
