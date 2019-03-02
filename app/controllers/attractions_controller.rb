@@ -11,10 +11,17 @@ class AttractionsController < ApplicationController
   end
 
   def create
-    pry
+
   end
 
   def new
     @attraction = Attraction.new
   end
+
+  private
+
+  def user_params
+    params.require(:attraction).permit(:name,:min_height,:happiness_rating,:nausea_rating,:tickets)
+  end
+
 end
