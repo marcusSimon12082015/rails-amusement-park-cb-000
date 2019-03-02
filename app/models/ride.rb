@@ -18,9 +18,11 @@ class Ride < ActiveRecord::Base
     elsif attraction.min_height > user.height
       @no_rides_for_you = "Sorry. You are not tall enough to ride the #{attraction.name}."
     end
-    @no_rides_for_you.empty? ? user.update(:tickets => user.tickets - attraction.tickets,
+    if @no_rides_for_you.empty?
+      user.update(:tickets => user.tickets - attraction.tickets,
                                            :happiness => user.happiness + attraction.happiness_rating,
                                            :nausea => user.nausea + attraction.nausea_rating)
-                               : @no_rides_for_you
+    end
+    return @no_rides_for_you
   end
 end
