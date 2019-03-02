@@ -11,6 +11,7 @@ class AttractionsController < ApplicationController
   end
 
   def create
+    pry
   end
 
   def new
