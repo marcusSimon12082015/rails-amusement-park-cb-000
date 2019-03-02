@@ -1,3 +1,5 @@
 <h1>Attractions#show</h1>
 <p><%=@attraction.name %></p>
-<%=button_to "Go on this ride", attraction_rides_path(@attraction.id) %>
+<% if !current_user.admin %>
+  <%=button_to "Go on this ride", attraction_rides_path(@attraction.id) %>
+<% end %>
