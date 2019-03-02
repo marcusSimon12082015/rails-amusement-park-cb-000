@@ -11,7 +11,13 @@ class AttractionsController < ApplicationController
   end
 
   def create
-
+    @attraction = Attraction.create(attraction_params)
+    if @attraction.save
+      redirect_to @attraction
+    else
+      flash[:error] = "Error happened when creating a new attraction!"
+      render :new
+    end
   end
 
   def new
@@ -20,7 +26,7 @@ class AttractionsController < ApplicationController
 
   private
 
-  def user_params
+  def attraction_params
     params.require(:attraction).permit(:name,:min_height,:happiness_rating,:nausea_rating,:tickets)
   end
 end
