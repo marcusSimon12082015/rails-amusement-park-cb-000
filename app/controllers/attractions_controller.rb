@@ -12,7 +12,13 @@ class AttractionsController < ApplicationController
   end
 
   def update
-
+    @attraction = Attraction.find(params[:id])
+    if @attraction.update(attraction_params)
+      redirect_to @attraction
+    else
+      flash[:error] = "Update error hapened!"
+      render :edit
+    end
   end
 
   def create
